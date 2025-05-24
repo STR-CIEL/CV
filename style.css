@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Barre de navigation */
+nav {
+    background-color: #004080;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Titres */
+h1 {
+    font-size: 2em;
+    color: #004080;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #0066cc;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 1.1em;
+    margin: 5px 0 20px 0;
+}
+
+/* Icônes */
+img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Contact layout suggestion */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
