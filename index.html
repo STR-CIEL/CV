@@ -11,17 +11,19 @@
     </head>
     <body>
         <header class="header">
-        
+            
            <a href="index.html" class="logo">
             Strazimiri <span>Besim</span>
            </a>
            <i class="bx bx-menu" id="menu-icon"></i>
            <nav class="navbar">
+                <div class="navbar-toggle" onclick="toggleMenu()">☰ Menu</div>
                 <a href="index.html" class="active">Home</a>
                 <a href="certificat.html">Certificats</a>
                 <a href="#">Labs</a>
                 
            </nav>
+
         </header>
         
 
@@ -80,6 +82,7 @@
             <p>Administration Windows & Linux</p>
             <p>TryHackMe (Niveau 8)</p>
             <p>Programmation(C++, C#, HTML, CSS, PHP, JS)</lpi>
+            <br>
             
  
             <h2>Formation</h2>
@@ -96,6 +99,20 @@
         <footer>
             © 2025 STRAZIMIRI <span>Besim</span> - CV en ligne
         </footer>
+
+
+        <script>
+            function toggleMenu() {
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => {
+                if (link.style.display === 'block') {
+                link.style.display = 'none';
+                } else {
+                link.style.display = 'block';
+                }
+            });
+            }
+        </script>
 
 
 

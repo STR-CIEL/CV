@@ -14,3 +14,10 @@
     height: auto;
     border-radius: 10px;
 }
+@media  (max-width:900px) {
+    .certificat {
+        margin-top: 12rem; /* augmente la valeur si besoin */
+    }
+    
+    
+}

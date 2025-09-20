@@ -64,7 +64,12 @@ body{
     color:var(--main-color);
     border-bottom: 3px solid var(--main-color) ;
 }
-
+.navbar-toggle{
+    display: none;
+    font-size: 2.4rem;
+    color: var(--main-color);
+    cursor: pointer;
+}
 #menu-icon{
     font-size: 3.6rem;
     color: var(--main-color);
@@ -168,8 +173,6 @@ footer{
 }
 
 
-
-
 @media (max-width: 900px) {
     html {
         font-size: 50%;
@@ -187,24 +190,25 @@ footer{
         font-size: 45%;
     }
     .header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem 2rem 2rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 4rem 12% 4rem;
+        background: black;
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        width: 100%;
+    }
+    .header .navbar-toggle{
+        align-items: end;
     }
     .logo {
         font-size: 2.2rem;
     }
-    .navbar {
-        width: 100%;
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .navbar a {
-        margin: 1rem 0;
-        font-size: 2rem;
-    }
+
     section {
         padding: 7rem 2% 7rem 2%;
     }
@@ -236,5 +240,14 @@ footer{
     footer {
         font-size: 1rem;
         padding: 1rem 0;
+    }
+    .navbar a {
+      display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+        font-size: 2.4rem;
+
     }
 }
