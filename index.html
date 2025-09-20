@@ -15,14 +15,22 @@
            <a href="index.html" class="logo">
             Strazimiri <span>Besim</span>
            </a>
-           <i class="bx bx-menu" id="menu-icon"></i>
-           <nav class="navbar">
-                <div class="navbar-toggle" onclick="toggleMenu()">☰ Menu</div>
+            <nav class="navbar">
                 <a href="index.html" class="active">Home</a>
                 <a href="certificat.html">Certificats</a>
                 <a href="#">Labs</a>
-                
-           </nav>
+            </nav>
+            <nav class="navbar mobile-nav" id="mobileNav">
+                <a href="index.html" class="logo">
+                    Strazimiri <span>Besim</span>
+                </a>
+                <a href="index.html" class="active">Home</a>
+                <a href="certificat.html">Certificats</a>
+                <a href="#">Labs</a>
+            </nav>
+            <div class="navbar-toggle" id="openNav" onclick="openNav()">☰ Menu</div>
+            <div class="navbar-close" id="closeNav" onclick="closeNav()" style ="display: none;">✕</div>
+            <!-- ...existing code... -->
 
         </header>
         
@@ -101,18 +109,7 @@
         </footer>
 
 
-        <script>
-            function toggleMenu() {
-            const links = document.querySelectorAll('.navbar a');
-            links.forEach(link => {
-                if (link.style.display === 'block') {
-                link.style.display = 'none';
-                } else {
-                link.style.display = 'block';
-                }
-            });
-            }
-        </script>
+        <script src="main.js"></script>
 
 
 

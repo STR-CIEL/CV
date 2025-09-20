@@ -70,6 +70,55 @@ body{
     color: var(--main-color);
     cursor: pointer;
 }
+
+/* Menu mobile latéral */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -70%;
+    width: 70%;
+    height: 100vh;
+    background: #111;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 2rem 2rem 2rem;
+    transition: left 0.3s;
+    z-index: 200;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    display: flex;
+}
+.mobile-nav .logo {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.mobile-nav.open {
+    left: 0;
+}
+.navbar-close{
+    display: none;
+    font-size: 2.4rem;
+    color: var(--main-color);
+    cursor: pointer;
+    align-self: flex-end;
+}
+.mobile-nav a {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin: 2rem 0;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
 #menu-icon{
     font-size: 3.6rem;
     color: var(--main-color);
@@ -241,13 +290,23 @@ footer{
         font-size: 1rem;
         padding: 1rem 0;
     }
-    .navbar a {
-      display: none;
-    }
 
+    .navbar {
+        display: none;
+    }
+    .mobile-nav {
+        display: flex;
+    }
     .navbar-toggle {
         display: block;
-        font-size: 2.4rem;
-
+    }
+    .mobile-nav.open {
+        display: flex;
+    }
+    .navbar-close :active{
+        display: none;
+    }
+    .navbar-close {
+        display: block;
     }
 }
