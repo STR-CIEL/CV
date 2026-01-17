@@ -17,3 +17,19 @@ function handleOutsideClick(event) {
         closeNav();
     }
 }
+function openLightbox(element) {
+    // 1. Récupérer la lightbox et l'image à l'intérieur
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    // 2. Afficher la lightbox
+    lightbox.classList.add('active');
+
+    // 3. Mettre la source de l'image cliquée dans l'image de la lightbox
+    lightboxImg.src = element.src;
+}
+
+function closeLightbox() {
+    // Cacher la lightbox
+    document.getElementById('lightbox').classList.remove('active');
+}

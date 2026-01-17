@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Strazimiri Besim</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html" class="active">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+        <div class="navbar-toggle" id="openNav" onclick="openNav()"><i class='bx bx-menu'></i></div>
+        <div class="navbar-close" id="closeNav" onclick="closeNav()" style="display: none;"><i class='bx bx-x'></i></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Mes <span>Projets</span></h2>
+        
+        <div class="grid-container">
+            <div class="project-card">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/400x300/000000/e63946?text=Jeu+Unity+2D" alt="Jeu Unity">
+                </div>
+                <div class="card-content">
+                    <h3>Jeu Vidéo 2D (Unity)</h3>
+                    <p>Conception complète d'un jeu de plateforme. Scripting C# (IA, physique), Level Design et gestion des menus.</p>
+                    <a href="#" class="btn">Voir le code (GitHub)</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/400x300/000000/e63946?text=Diaporama+Reseau" alt="Présentation Projet">
+                </div>
+                <div class="card-content">
+                    <h3>Architecture Réseau</h3>
+                    <p>Présentation technique sur la mise en place d'un réseau sécurisé d'entreprise (VLANs, Routage).</p>
+                    <a href="#" class="btn">Télécharger le PDF</a>
+                </div>
+            </div>
+            
+            </div>
+    </section>
+
+    <footer>
+        © 2025 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

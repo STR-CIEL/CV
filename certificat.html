@@ -1,74 +1,86 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" 
-        content="width-device-width, initial-scale=1.0">
-        <title>CV</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="certif.css">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificats | Strazimiri Besim</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
 
-    </head>
-    <body>
-       <header class="header">
+    <header class="header">
+        <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html">Projets</a>
+            <a href="certificat.html" class="active">Certificats</a>
+        </nav>
+        <div class="navbar-toggle" id="openNav" onclick="openNav()"><i class='bx bx-menu'></i></div>
+        <div class="navbar-close" id="closeNav" onclick="closeNav()" style="display: none;"><i class='bx bx-x'></i></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Mes <span>Certifications</span></h2>
+        
+        <div class="grid-container">
             
-           <a href="index.html" class="logo">
-            Strazimiri <span>Besim</span>
-           </a>
-            <nav class="navbar">
-                <a href="index.html" class="active">Home</a>
-                <a href="certificat.html">Certificats</a>
-                <a href="#">Labs</a>
-            </nav>
-            <nav class="navbar mobile-nav" id="mobileNav">
-                <a href="index.html" class="logo">
-                    Strazimiri <span>Besim</span>
-                </a>
-                <a href="index.html" class="active">Home</a>
-                <a href="certificat.html">Certificats</a>
-                <a href="#">Labs</a>
-            </nav>
-            <div class="navbar-toggle" id="openNav" onclick="openNav()">☰ Menu</div>
-            <div class="navbar-close" id="closeNav" onclick="closeNav()" style="display: none;">✕</div>
-            
-        </header>
+            <div class="certif-card">
+                <div class="img-box">
+                    <img src="Certificat/Advent-25.png" alt="Advent of Cyber" onclick="openLightbox(this)">
+                </div>
+                <div class="card-content">
+                    <h3>Advent of Cyber 2025</h3>
+                    <p>TryHackMe</p>
+                </div>
+            </div>
 
-        <section class="certificat" id="certificat">
-            <h2>CCNA: Presentation des Reseaux</h2>
-            <br>
+            <div class="certif-card">
+                <div class="img-box">
+                    <img src="Certificat/CCNA Presentation.png" alt="CCNA Intro" onclick="openLightbox(this)">
+                </div>
+                <div class="card-content">
+                    <h3>Introduction aux Réseaux</h3>
+                    <p>Cisco CCNA</p>
+                </div>
+            </div>
 
-            <img src="Certificat/CCNA Presentation.png" alt="Certificat">
-        </section>
-        <section class="certificat" id="certificat">
-            <h2>AWS: Academy Graduate - AWS Academy Cloud Foundations</h2>
-            <br>
+            <div class="certif-card">
+                <div class="img-box">
+                    <img src="Certificat/AWS_Presentation.png" alt="AWS Cloud" onclick="openLightbox(this)">
+                </div>
+                <div class="card-content">
+                    <h3>AWS Cloud Foundations</h3>
+                    <p>AWS Academy</p>
+                </div>
+            </div>
 
-            <img src="Certificat/AWS_Presentation.png"  alt="Certificat">
-        </section>
-        <section class="certificat" id="certificat">
-            <h2>Advent of Cyber 2024 (TryHackMe)</h2>
-            <br>
+            <div class="certif-card">
+                <div class="img-box">
+                    <img src="Certificat/TryHackMe_AdventofCyber2024.png" alt="Advent of Cyber 2024" onclick="openLightbox(this)">
+                </div>
+                <div class="card-content">
+                    <h3>Advent of Cyber 2024</h3>
+                    <p>TryHackMe</p>
+                </div>
+            </div>
 
-            <img src="Certificat/TryHackMe_AdventofCyber2024.png"  alt="Certificat">
-        </section>
+        </div>
+    </section>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Image agrandie">
+    </div>
 
-
-
-
-
-
-
-
-        <footer>
-            © 2025 STRAZIMIRI <span>Besim</span> - CV en ligne
-        </footer>
-
-        <script src="main.js"></script>
-
-
-
-
-    </body>
+    <footer>
+        © 2025 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
+    </footer>
+    <script src="main.js"></script>
+</body>
 </html>
