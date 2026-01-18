@@ -409,6 +409,21 @@ footer {
     box-shadow: 0 0 30px rgba(230, 57, 70, 0.2);
     border: 2px solid #333;
 }
+.conteneur-cote-a-cote {
+  display: flex;          /* Met les éléments l'un à côté de l'autre */
+  align-items: flex-start; /* Aligne les images en haut (changez pour 'center' si vous préférez) */
+  gap: 20px;              /* Ajoute un espace entre les deux images */
+}
+
+.image-principale {
+  width: 70%;  /* La grande image prend 70% de la largeur */
+  height: auto; /* Garde les proportions */
+}
+
+.image-detail {
+  width: 30%;  /* La petite image prend les 30% restants (moins le gap) */
+  height: auto; 
+}
 
 /* Blocs de détails (Alternance Texte / Image) */
 .detail-block {
@@ -489,6 +504,64 @@ footer {
     display: block; /* Enlève la petite marge blanche en bas par défaut */
     aspect-ratio: 16 / 9; /* Force le format rectangulaire standard (YouTube/TV) */
     object-fit: cover; /* Assure que la vidéo remplit bien le cadre */
+}
+
+/* --- BLOCS DE CODE (Style VS Code) --- */
+.code-section {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.code-block {
+    background: #1e1e1e; /* Fond gris foncé typique des IDE */
+    border-radius: 8px;
+    border: 1px solid #333;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace; /* Police code */
+    text-align: left;
+}
+
+.code-header {
+    background: #252526;
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-name {
+    color: #e63946; /* Rouge pour le nom du fichier */
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-btn {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+pre {
+    margin: 0;
+    padding: 15px;
+    overflow-x: auto; /* Scroll horizontal si la ligne est trop longue */
+}
+
+code {
+    color: #d4d4d4; /* Couleur texte par défaut */
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+/* Coloration syntaxique simple (Simulation) */
+/* Note : Pour une vraie coloration automatique, il faudrait une librairie JS comme Prism.js */
+/* Mais ces règles simples suffisent pour faire joli */
+.language-csharp {
+    display: block;
 }
 
 /* Mobile */

@@ -61,12 +61,8 @@
 
         <div class="detail-block reverse"> <div class="text-content">
                 <h2>02. Création des Niveaux</h2>
-                <p>J'ai utilisé le système de <strong>Tilemap</strong> d'Unity pour peindre les niveaux.</p>
-                <ul>
-                    <li>Conception du décor et des plateformes.</li>
-                    <li>Mise en place des obstacles et pièges (Traps).</li>
-                    <li>Gestion de la caméra pour suivre le joueur.</li>
-                </ul>
+                <p>Gestion du Scene Management : Création et organisation des assets pour l'architecture des niveaux.</p>
+ 
             </div>
             <div class="video-container">
                 <video controls autoplay muted loop>
@@ -75,7 +71,36 @@
                 </video>
             </div>
         </div>
-        <div class="code-section">
+        
+        <div class="detail-block">
+            <h2>03. Creation du Tilemap</h2>
+            <ul>
+                <li>Création de l'environnement : Mise en place de l'objet Grid et de la Tilemap rectangulaire pour définir la zone de dessin du niveau.</li>
+                <li>Configuration de la physique : Intégration du Tilemap Collider 2D et paramétrage du Rigidbody 2D en mode Static pour générer des collisions fixes et stables.</li>
+                <li>Gestion des Layers : Assignation du calque "Ground" à l'objet pour assurer la détection du sol lors des interactions avec le joueur.</li>
+            </ul>
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="Project/Tilemap.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            
+        </div>
+
+        <div class="detail-block">
+            <h2>04. Creation du personnage</h2>
+            <ul>
+                <li>Paramétrage du Rigidbody 2D en mode Dynamic avec contraintes de rotation (Freeze Rotation Z) pour stabiliser le personnage.</li>
+                <li>Optimisation de la détection de collision via le mode Continuous pour prévenir les erreurs de traversée d'objets (Tunneling).</li>
+                <li>Mise en place de la hiérarchie du personnage incluant un système de détection au sol (GroundCheck).</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Project/CR.perssonage.png" alt="Interface Unity" onclick="openLightbox(this)">
+            </div>
+            
+        </div>
+
     
     
 
