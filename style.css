@@ -263,6 +263,10 @@ h2 span { color: var(--main-color); }
     border-color: var(--main-color);
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
+.project-card ul li {
+    list-style-type: disc; /* Met des petits points ronds */
+    margin-bottom: 5px;
+}
 
 /* Zoom Image Certificat */
 .img-box {
@@ -364,4 +368,132 @@ footer {
     .home-content h1 { font-size: 4rem; }
     .navbar { display: none; }
     .navbar-toggle { display: block; }
+}
+
+
+
+/* --- PAGE PROJET DÉTAILLÉ (spiky.html) --- */
+
+/* Hero Section (En haut) */
+.project-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12rem; /* Espace pour le header */
+    gap: 4rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+.hero-text h5 { color: var(--main-color); font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+.hero-text h1 { font-size: 5rem; margin: 1rem 0; line-height: 1.1; }
+.hero-text p { font-size: 1.6rem; color: #ccc; margin-bottom: 2rem; }
+
+.tech-stack span {
+    display: inline-block;
+    background: #222;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 1.4rem;
+    border: 1px solid #444;
+}
+
+.hero-img {
+    flex: 1;
+}
+.hero-img img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(230, 57, 70, 0.2);
+    border: 2px solid #333;
+}
+
+/* Blocs de détails (Alternance Texte / Image) */
+.detail-block {
+    margin-bottom: 8rem;
+}
+
+.detail-block h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--main-color);
+    padding-left: 15px;
+    text-align: left; /* Force l'alignement à gauche */
+}
+
+.detail-block p, .detail-block ul li {
+    font-size: 1.6rem;
+    color: #bbb;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.detail-block ul { margin-left: 2rem; margin-bottom: 2rem; }
+
+/* Grid pour les images dans les détails */
+.detail-block img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.detail-block img:hover { transform: scale(1.02); opacity: 0.9; }
+
+/* Mise en page pour les blocs "Reverse" (Texte à gauche, image à droite sur grand écran) */
+.detail-block.reverse {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Conclusion box */
+.project-conclusion {
+    background: #1a1a1a;
+    padding: 4rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* --- CONTAINER VIDÉO --- */
+.video-container {
+    width: 100%;
+    max-width: 900px; /* Largeur maximale pour ne pas être trop grand sur PC */
+    border-radius: 15px; /* Coins arrondis comme le reste du site */
+    overflow: hidden; /* Coupe ce qui dépasse des coins arrondis */
+    border: 2px solid #333; /* Bordure grise discrète */
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.15); /* Légère lueur rouge */
+    background: #000; /* Fond noir au cas où la vidéo charge mal */
+    margin: 0 auto; /* Centre le bloc horizontalement */
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol de la vidéo */
+.video-container:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 0 30px rgba(230, 57, 70, 0.4);
+    transform: scale(1.01); /* Tout petit zoom pour l'effet interactif */
+}
+
+/* Style de la balise vidéo elle-même */
+.video-container video, 
+.video-container iframe {
+    width: 100%;
+    height: auto;
+    display: block; /* Enlève la petite marge blanche en bas par défaut */
+    aspect-ratio: 16 / 9; /* Force le format rectangulaire standard (YouTube/TV) */
+    object-fit: cover; /* Assure que la vidéo remplit bien le cadre */
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .project-hero { flex-direction: column; text-align: center; }
+    .detail-block.reverse { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 3.5rem; }
 }

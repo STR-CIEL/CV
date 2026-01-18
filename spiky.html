@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Spiky Adventures</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html" class="active">Projets</a> <a href="certificat.html">Certificats</a>
+        </nav>
+        <div class="navbar-toggle" id="openNav" onclick="openNav()"><i class='bx bx-menu'></i></div>
+    </header>
+
+    <section class="project-hero">
+        <div class="hero-text">
+            <h5>Jeu Vidéo / Unity</h5>
+            <h1>Spiky Adventures</h1>
+            <p>
+                Un jeu de plateforme en 2D inspiré de Mario. 
+                L’objectif est de traverser différents niveaux en évitant les obstacles et les ennemis.
+            </p>
+            <div class="tech-stack">
+                <span><i class='bx bxl-unity'></i> Unity</span>
+                <span><i class='bx bx-code-alt'></i> C#</span>
+            </div>
+            <br>
+            <a href="https://github.com/STR-CIEL/jeu" target="_blank" class="btn">Voir le code sur GitHub</a>
+        </div>
+        <div class="video-container">
+            <video controls autoplay muted loop>
+                <source src="Project/spiky.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+    </section>
+
+    <section class="project-details">
+        
+        <div class="detail-block">
+            <h2>01. Conception & Logique</h2>
+            <p>Avant de coder, j'ai structuré la logique du jeu via un diagramme de cas d'utilisation. Cela m'a permis de définir les interactions principales : sauter, courir, et interagir avec les ennemis.</p>
+            <div class="img-grid">
+                <img src="Project/diagramme de classe.png" alt="Diagramme UML" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <div class="detail-block reverse"> <div class="text-content">
+                <h2>02. Création des Niveaux</h2>
+                <p>J'ai utilisé le système de <strong>Tilemap</strong> d'Unity pour peindre les niveaux.</p>
+                <ul>
+                    <li>Conception du décor et des plateformes.</li>
+                    <li>Mise en place des obstacles et pièges (Traps).</li>
+                    <li>Gestion de la caméra pour suivre le joueur.</li>
+                </ul>
+            </div>
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="Project/Levels.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
+        <div class="code-section">
+    
+    
+
+        <div class="detail-block">
+            <h2>03. Développement C# & Animation</h2>
+            <p>Le cœur du projet repose sur les scripts C# pour gérer la physique et les inputs.</p>
+            <ul>
+                <li><strong>Mouvement :</strong> Gestion de la vitesse et de la gravité.</li>
+                <li><strong>Animation :</strong> Utilisation de l'Animator pour les transitions (Idle, Run, Jump).</li>
+                <li><strong>Création du personnage :</strong> Intégration des sprites et hitboxes.</li>
+            </ul>
+        </div>
+
+        <div class="project-conclusion">
+            <h3>Ce que j'ai appris</h3>
+            <p>
+                Dans ce projet, j’ai appris à coder en C#, je me suis familiarisé avec l’interface d’Unity et j’ai compris comment fonctionne la création d’un jeu 2D de A à Z.
+            </p>
+        </div>
+
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom">
+    </div>
+
+    <footer>
+        © 2025 STRAZIMIRI <span>Besim</span> - <a href="Projet.html">Retour aux projets</a>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
