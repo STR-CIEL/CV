@@ -100,28 +100,221 @@
             </div>
             
         </div>
-
-    
-    
-
         <div class="detail-block">
-            <h2>03. Développement C# & Animation</h2>
-            <p>Le cœur du projet repose sur les scripts C# pour gérer la physique et les inputs.</p>
-            <ul>
-                <li><strong>Mouvement :</strong> Gestion de la vitesse et de la gravité.</li>
-                <li><strong>Animation :</strong> Utilisation de l'Animator pour les transitions (Idle, Run, Jump).</li>
-                <li><strong>Création du personnage :</strong> Intégration des sprites et hitboxes.</li>
-            </ul>
-        </div>
+            <h2>05. Les Mouvements</h2>
+            <div class="code-description">
+                <h3><i class='bx bx-terminal'></i> Analyse du script de Mouvement</h3>
+                <p>
+                    Ce script gère la physique du joueur en utilisant le <strong>nouveau système d'Input</strong> d'Unity. 
+                    J'ai choisi d'utiliser <code>FixedUpdate</code> pour garantir une physique fluide indépendante du taux de rafraîchissement (framerate).
+                </p>
+                <ul class="tech-list">
+                    <li><strong>Unity 6 Ready :</strong> Utilisation de la propriété <code>rb.linearVelocity</code> (remplaçant l'ancienne syntaxe <code>velocity</code>). [cite: 1]</li>
+                    <li><strong>Détection du sol :</strong> Un <code>Raycast</code> vertical permet d'autoriser le saut uniquement si le joueur touche le sol, évitant le "saut infini". [cite: 1]</li>
+                    <li><strong>Animation :</strong> La vitesse est transmise à l'Animator pour déclencher l'animation de course via <code>Mathf.Abs(horizontal)</code>. [cite: 1]</li>
+                </ul>
+            </div>
+            <div class="code-section">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="file-name"><i class='bx bxl-c-plus-plus'></i> Mouvement.cs</span>
+                        <span class="copy-btn">Unity C# Script</span>
+                    </div>
+                    
+                    <pre><code class="language-csharp">
+            using UnityEngine;
+            using UnityEngine.InputSystem;
 
-        <div class="project-conclusion">
-            <h3>Ce que j'ai appris</h3>
+            public class Mouvement : MonoBehaviour
+            {
+                public Rigidbody2D rb;
+                public float speed;
+                public float jumpForce;
+                public LayerMask groundLayer;
+                public Transform groundCheck;
+                
+                float horizontal;
+                SpriteRenderer[] sr;
+                private bool isGrounded;
+                Animator animator;
+
+                private void Start()
+                {
+                    // Récupère tous les SpriteRenderers de l'objet et des enfants
+                    sr = GetComponentsInChildren&lt;SpriteRenderer&gt;();
+                    animator = GetComponent&lt;Animator&gt;();
+                }
+
+                private void FixedUpdate()
+                {
+                    // Utilisation de linearVelocity (Unity 6 / Nouveau système physique)
+                    rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+                    animator.SetFloat("speed", Mathf.Abs(horizontal));
+                }
+
+                // Gestion du mouvement avec le nouveau Input System
+                public void Move(InputAction.CallbackContext context)
+                {
+                    horizontal = context.ReadValue&lt;Vector2&gt;().x;
+
+                    if (horizontal < 0)
+                    {
+                        transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f); // Tourne le personnage
+                    }
+                    else if (horizontal > 0)
+                    {
+                        transform.localScale = new Vector3(.2f, .2f, .2f); // Face normale
+                    }
+                }
+
+                public void Jump()
+                {
+                    CheckGround();
+                    // Vérifie si la touche saut est pressée et si le perso est au sol
+                    if (Input.GetButtonDown("Jump") && isGrounded)
+                    {
+                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    }
+                }
+
+                void CheckGround()
+                {
+                    // Raycast vers le bas pour détecter le sol
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
+                    isGrounded = hit.collider != null;
+                }
+            }
+                    </code></pre>
+                </div>
+            </div>
+            
+        </div>
+        <div class="detail-block">
+            <h2>06. Traps</h2>
             <p>
-                Dans ce projet, j’ai appris à coder en C#, je me suis familiarisé avec l’interface d’Unity et j’ai compris comment fonctionne la création d’un jeu 2D de A à Z.
+                Ce script contrôle un ennemi statique qui tombe lorsqu'il détecte le joueur en dessous. 
+                C'est un exemple d'interaction entre <strong>IA simple</strong> et <strong>Physique Unity</strong>.
             </p>
-        </div>
+            <ul class="tech-list">
+                <li><strong>Mathématiques :</strong> Utilisation de <code>Vector2.Distance</code> pour calculer la proximité du joueur sans collision physique.</li>
+                <li><strong>Contrôle Physique :</strong> Manipulation directe de <code>gravityScale</code> (0 à 1) pour simuler une chute soudaine.</li>
+                <li><strong>Logique d'État :</strong> Utilisation de booléens (<code>isFalling</code>) pour gérer les états du piège (Attente, Chute, Reset).</li>
+            </ul>
+            
+            <div class="img-grid">
+                <img src="Project/spikhead.png" alt="Interface Unity" onclick="openLightbox(this)">
+            </div>
+            <div class="code-section">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="file-name"><i class='bx bxl-c-plus-plus'></i> SpikeHead.cs</span>
+                        <span class="copy-btn">Unity C# Script</span>
+                    </div>
+                    
+                    <pre><code class="language-csharp">
+            using UnityEngine;
 
-    </section>
+            public class SpikeHead : EnemyRespawn
+            {
+                public Transform player; // Référence au joueur
+                public float detectionRange = 5f; // Distance à laquelle il détecte le joueur
+                public float fallSpeed = 5f; // Vitesse de chute
+                public float resetDelay = 2f; // Temps avant de remonter
+
+
+                private Vector3 startPosition;
+                private Rigidbody2D rb;
+                private bool isFalling = false;
+
+                void Start()
+                {
+                    startPosition = transform.position; // Sauvegarde la position de départ
+                    rb = GetComponent<Rigidbody2D>();
+                    rb.gravityScale = 0; // Désactive la gravité au départ
+                }
+
+                void Update()
+                {
+                    if (!isFalling && player != null)
+                    {
+                        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+                        if (distanceToPlayer < detectionRange && player.position.y < transform.position.y)
+                        {
+                            Fall(); // Déclenche la chute
+                        }
+                    }
+                }
+
+                void Fall()
+                {
+                    isFalling = true;
+                    rb.gravityScale = 1; // Active la gravité pour faire tomber l'objet
+                }
+
+                /*void OnCollisionEnter2D(Collision2D collision)
+                {
+                    if (collision.gameObject.CompareTag("Player"))
+                    {
+                        // Appliquer les dégâts au joueur (ajuste selon ton système de santé)
+                        collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+                    }
+
+                    // Après collision, attend un moment puis remonte
+                    Invoke("ResetPosition", resetDelay);
+                }*/
+
+                void ResetPosition()
+                {
+                    rb.gravityScale = 0;
+                    rb.linearVelocity = Vector2.zero; // Arrête le mouvement
+                    transform.position = startPosition; // Remet à la position initiale
+                    isFalling = false;
+                }
+            }
+                    </code></pre>
+                </div>
+            </div>
+            
+        </div>
+        <section class="project-conclusion-section">
+            <div class="conclusion-card">
+                <h2><i class='bx bx-trophy'></i> Bilan & Compétences acquises</h2>
+                
+                <p>
+                    Ce projet <strong>Spiky Adventures</strong> a été une étape clé dans mon parcours. 
+                    Il m'a permis de transformer des concepts théoriques en une application fonctionnelle.
+                    J'ai non seulement appris à coder en <strong>C#</strong> et à maîtriser l'interface d'<strong>Unity</strong>, 
+                    mais j'ai surtout compris la logique globale d'un projet informatique : de la conception (UML) jusqu'à la gestion des bugs.
+                </p>
+
+                <div class="key-points">
+                    <div class="point">
+                        <i class='bx bx-check'></i>
+                        <span>Gestion de la <strong>Physique 2D</strong> (Gravité, Collisions)</span>
+                    </div>
+                    <div class="point">
+                        <i class='bx bx-check'></i>
+                        <span>Architecture <strong>Orientée Objet</strong> (Héritage, Classes)</span>
+                    </div>
+                    <div class="point">
+                        <i class='bx bx-check'></i>
+                        <span>Utilisation du nouveau <strong>Input System</strong></span>
+                    </div>
+                </div>
+
+                <br>
+                <a href="https://github.com/STR-CIEL/jeu/" target="_blank" class="btn">
+                    <i class='bx bxl-github'></i> Voir le projet complet sur GitHub
+                </a>
+            </div>
+        </section>
+
+
+    
+    
+
+        
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn">&times;</span>
@@ -129,7 +322,7 @@
     </div>
 
     <footer>
-        © 2025 STRAZIMIRI <span>Besim</span> - <a href="Projet.html">Retour aux projets</a>
+        © 2025 STRAZIMIRI <span>Besim</span>
     </footer>
 
     <script src="main.js"></script>

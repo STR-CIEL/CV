@@ -570,3 +570,182 @@ code {
     .detail-block.reverse { grid-template-columns: 1fr; }
     .hero-text h1 { font-size: 3.5rem; }
 }
+/* --- STYLE ÉDITEUR DE CODE (VS CODE) --- */
+.code-section {
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.code-block {
+    background: #1e1e1e; /* Gris foncé typique VS Code */
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: 'Consolas', 'Courier New', monospace;
+    overflow: hidden; /* Empêche le texte de sortir du cadre */
+    text-align: left;
+}
+
+.code-header {
+    background: #252526;
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-name {
+    color: #9cdcfe; /* Bleu clair pour le nom du fichier */
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-btn {
+    font-size: 1.2rem;
+    color: #6a9955; /* Vert pour le type */
+}
+
+pre {
+    margin: 0;
+    padding: 20px;
+    overflow-x: auto; /* Barre de défilement horizontale si la ligne est longue */
+    white-space: pre; /* Garde les espaces et retours à la ligne exacts */
+}
+
+code {
+    color: #d4d4d4; /* Couleur de texte gris clair */
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* Petite astuce : Sélectionne le texte en bleu comme dans un éditeur */
+code::selection {
+    background: #264f78;
+}
+/* Tu peux mettre ça dans ton fichier style.css */
+.code-description {
+    background: #252526;
+    border-left: 4px solid var(--main-color);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.code-description h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.code-description p {
+    color: #ccc;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-list li {
+    font-size: 1.3rem;
+    color: #bbb;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.tech-list li::before {
+    content: "✓";
+    color: var(--main-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+/* --- SECTION CONCLUSION --- */
+.project-conclusion-section {
+    padding: 4rem 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.conclusion-card {
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    padding: 4rem;
+    border-radius: 15px;
+    border: 1px solid #333;
+    text-align: center;
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Petite barre décorative en haut */
+.conclusion-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: var(--main-color);
+}
+
+.conclusion-card h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.conclusion-card h2 i {
+    color: var(--main-color);
+}
+
+.conclusion-card p {
+    font-size: 1.6rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+/* Liste des points clés */
+.key-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.point {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #444;
+    transition: 0.3s;
+}
+
+.point:hover {
+    border-color: var(--main-color);
+    transform: translateY(-3px);
+}
+
+.point i {
+    color: var(--main-color);
+    font-size: 1.8rem;
+}
+
+.point span {
+    font-size: 1.4rem;
+    color: white;
+}
