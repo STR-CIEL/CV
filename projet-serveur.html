@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Home Lab</title>
+    <link rel="icon" type="image" href="Certificat/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html" class="active">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+        <div class="navbar-toggle" id="openNav" onclick="openNav()"><i class='bx bx-menu'></i></div>
+        <div class="navbar-close" id="closeNav" onclick="closeNav()" style="display: none;"><i class='bx bx-x'></i></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+    </header>
+
+    <section class="project-hero">
+        <div class="hero-text">
+            <h5>Auto-hébergement • Virtualisation Docker • Sécurité VPN</h5>
+            <h1>Infrastructure Système & Réseau (Home Lab)</h1>
+           
+            <div class="tech-stack">
+                <span><i class='bx bxl-tux'></i> LINUX </span>
+                <span><i class='bx bxl-docker'></i> Docker</span>
+                <span><i class="bx bx-shield-quarter">VPN</i></span>
+                
+                <span><i class="bx bx-terminal">SSH</i></span>
+                <span><i class="bx bx-server">Samba</i></span>
+            </div>
+            
+        </div>
+        <div class="img-grid">
+            <img src="Projet-serveur/BTOP.png" class="responsive-img" onclick="openLightbox(this)">
+        </div>
+    </section>
+
+    <section class="project-details">
+        
+        <div class="detail-block">
+            <h2>01. LE DÉFI TECHNIQUE </h2>
+            <ul>
+                <li>Contexte : Hébergement d'un serveur personnel au sein d'une résidence universitaire (réseau CROUS).</li>
+                <li>Contrainte : Réseau soumis à un NAT strict, IP dynamique et aucun port entrant ouvert. Impossibilité d'exposer des services de manière classique.</li>
+                <li>Solution : Mise en place d'un réseau Mesh VPN avec Tailscale (basé sur WireGuard). Cette architecture crée un tunnel sécurisé traversant le pare-feu, permettant l'accès et l'administration à distance sans ouverture de port critique.</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Projet-serveur/Tailscale.png" alt="Tailscale" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <div class="detail-block reverse"> <div class="text-content">
+                <h2>02. L'Architecture Système</h2>
+                 <ul>
+                    <li>OS : Debian Linux (Stabilité et performance).</li>
+                    <li>Gestion : Administration 100% "Headless" via SSH (MobaXtrem).</li>
+                    <li>Stockage : Serveur de fichiers Samba (NAS maison) pour centraliser les documents sur le réseau local.</li>
+                </ul>
+            </div>
+            <div class="img-grid">
+                <img src="Projet-serveur/smb.png" alt="Samba" onclick="openLightbox(this)">
+            </div>
+            
+        </div>
+        
+        <div class="detail-block">
+            <h2>03. Virtualisation & Orchestration (Docker)</h2>
+            <ul>
+                <li>Docker & Docker-Compose : Isolation des services dans des conteneurs légers.</li>
+                <li>Portainer : Interface graphique pour monitorer l'état des conteneurs, les logs et les ressources en temps réel.</li>
+                <li>Dashboard Dashy : Création d'un portail centralisé pour accéder à tous les outils en un clic.</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Projet-serveur/portainer.png" alt="portainer" onclick="openLightbox(this)">
+            </div>
+            
+        </div>
+
+        <div class="detail-block">
+            <h2>04. Réseau & Sécurité</h2>
+            <ul>
+                <li>VPN Mesh (Tailscale) : Création d'un tunnel sécurisé pour accéder au serveur depuis n'importe où sans ouvrir de ports sur la box (contournement du NAT).</li>
+                <li>Pi-hole : Protection globale du réseau via filtrage DNS (blocage des publicités et trackers au niveau réseau).</li>
+                <li>Nginx Reverse Proxy : Gestion propre des flux entrants et sécurisation des accès.</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Projet-serveur/pi-hole.png" alt="pi-hole" onclick="openLightbox(this)">
+            </div>
+            
+        </div>
+        
+        <section class="project-conclusion-section">
+            <div class="conclusion-card">
+                <h2><i class='bx bx-trophy'></i> Bilan & Compétences acquises</h2>
+                
+                <p>
+                    Ce projet <strong>Spiky Adventures</strong> a été une étape clé dans mon parcours. 
+                    Il m'a permis de transformer des concepts théoriques en une application fonctionnelle.
+                    J'ai non seulement appris à coder en <strong>C#</strong> et à maîtriser l'interface d'<strong>Unity</strong>, 
+                    mais j'ai surtout compris la logique globale d'un projet informatique : de la conception (UML) jusqu'à la gestion des bugs.
+                </p>
+
+                <div class="key-points">
+                    <div class="point">
+                        <i class='bx bx-check'></i>
+                        <span>Gestion de la <strong>Physique 2D</strong> (Gravité, Collisions)</span>
+                    </div>
+                    <div class="point">
+                        <i class='bx bx-check'></i>
+                        <span>Architecture <strong>Orientée Objet</strong> (Héritage, Classes)</span>
+                    </div>
+                    <div class="point">
+                        <i class='bx bx-check'></i>
+                        <span>Utilisation du nouveau <strong>Input System</strong></span>
+                    </div>
+                </div>
+
+                <br>
+                <a href="https://github.com/STR-CIEL/jeu/" target="_blank" class="btn">
+                    <i class='bx bxl-github'></i> Voir le projet complet sur GitHub
+                </a>
+            </div>
+        </section>
+
+
+    
+    
+
+        
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom">
+    </div>
+
+    <footer>
+        © 2025 STRAZIMIRI <span>Besim</span>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

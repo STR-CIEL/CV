@@ -396,33 +396,21 @@ footer {
     padding: 5px 15px;
     border-radius: 20px;
     margin-right: 10px;
+    margin-top: 10px ;
     font-size: 1.4rem;
     border: 1px solid #444;
 }
 
-.hero-img {
-    flex: 1;
-}
-.hero-img img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(230, 57, 70, 0.2);
-    border: 2px solid #333;
-}
-.conteneur-cote-a-cote {
-  display: flex;          /* Met les éléments l'un à côté de l'autre */
-  align-items: flex-start; /* Aligne les images en haut (changez pour 'center' si vous préférez) */
-  gap: 20px;              /* Ajoute un espace entre les deux images */
+.responsive-img {
+    width: 1000px;
+    max-width: 100%;
+    cursor: pointer;
 }
 
-.image-principale {
-  width: 70%;  /* La grande image prend 70% de la largeur */
-  height: auto; /* Garde les proportions */
-}
-
-.image-detail {
-  width: 30%;  /* La petite image prend les 30% restants (moins le gap) */
-  height: auto; 
+@media (max-width: 900px) {
+    .responsive-img {
+        width: 100%;
+    }
 }
 
 /* Blocs de détails (Alternance Texte / Image) */
@@ -467,16 +455,6 @@ footer {
 }
 
 /* Conclusion box */
-.project-conclusion {
-    background: #1a1a1a;
-    padding: 4rem;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid #333;
-    max-width: 800px;
-    margin: 0 auto;
-}
-/* --- CONTAINER VIDÉO --- */
 .video-container {
     width: 100%;
     max-width: 900px; /* Largeur maximale pour ne pas être trop grand sur PC */
@@ -513,12 +491,12 @@ footer {
 }
 
 .code-block {
-    background: #1e1e1e; /* Fond gris foncé typique des IDE */
+    background: #1e1e1e; /* Gris foncé typique VS Code */
     border-radius: 8px;
     border: 1px solid #333;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace; /* Police code */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: 'Consolas', 'Courier New', monospace;
+    overflow: hidden; /* Empêche le texte de sortir du cadre */
     text-align: left;
 }
 
@@ -559,65 +537,14 @@ code {
 
 /* Coloration syntaxique simple (Simulation) */
 /* Note : Pour une vraie coloration automatique, il faudrait une librairie JS comme Prism.js */
-/* Mais ces règles simples suffisent pour faire joli */
-.language-csharp {
-    display: block;
-}
 
-/* Mobile */
-@media (max-width: 900px) {
-    .project-hero { flex-direction: column; text-align: center; }
-    .detail-block.reverse { grid-template-columns: 1fr; }
-    .hero-text h1 { font-size: 3.5rem; }
-}
-/* --- STYLE ÉDITEUR DE CODE (VS CODE) --- */
-.code-section {
-    margin: 2rem 0;
-    width: 100%;
-}
-
-.code-block {
-    background: #1e1e1e; /* Gris foncé typique VS Code */
-    border-radius: 8px;
-    border: 1px solid #333;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    font-family: 'Consolas', 'Courier New', monospace;
-    overflow: hidden; /* Empêche le texte de sortir du cadre */
-    text-align: left;
-}
-
-.code-header {
-    background: #252526;
-    padding: 10px 20px;
-    border-bottom: 1px solid #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.file-name {
-    color: #9cdcfe; /* Bleu clair pour le nom du fichier */
-    font-size: 1.4rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.copy-btn {
-    font-size: 1.2rem;
-    color: #6a9955; /* Vert pour le type */
-}
-
+/* Ajustements finaux du code */
 pre {
-    margin: 0;
     padding: 20px;
-    overflow-x: auto; /* Barre de défilement horizontale si la ligne est longue */
     white-space: pre; /* Garde les espaces et retours à la ligne exacts */
 }
 
 code {
-    color: #d4d4d4; /* Couleur de texte gris clair */
     font-size: 1.4rem;
     line-height: 1.6;
 }
