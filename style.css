@@ -246,7 +246,7 @@ h2 span { color: var(--main-color); }
 /* --- PAGE PROJETS & CERTIFICATS --- */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
     margin-top: 2rem;
 }
@@ -366,8 +366,30 @@ footer {
     section { padding: 8rem 5% 2rem; }
     .resume-container { grid-template-columns: 1fr; }
     .home-content h1 { font-size: 4rem; }
+    .home-content h3 { font-size: 2rem; }
     .navbar { display: none; }
     .navbar-toggle { display: block; }
+
+    /* Ajustements d'espacements pour petits écrans */
+    .full-width-card, .timeline-box, .info-card { padding: 2rem; }
+    .conclusion-card { padding: 2rem; }
+    .detail-block h2 { font-size: 2.5rem; }
+    
+    /* Passage des blocs en colonnes sur les pages de projets */
+    .project-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 10rem;
+    }
+    .detail-block.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .code-header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }
 
 
