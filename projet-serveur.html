@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projet Home Lab par Strazimiri Besim : Déploiement d'une infrastructure serveur complète (Linux, Docker, VPN, NAS).">
+    <meta name="description" content="Projet Home Lab par Strazimiri Besim : Infrastructure Système & Réseau.">
     <title>Projet : Home Lab</title>
-    <link rel="icon" type="image" href="Certificat/logo.png">
+    <link rel="icon" type="image/png" href="Certificat/logo.png">
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
@@ -30,137 +30,83 @@
 
     <section class="project-hero">
         <div class="hero-text">
-            <h5>Auto-hébergement • Virtualisation Docker • Sécurité VPN</h5>
-            <h1>Infrastructure Système & Réseau (Home Lab)</h1>
-           
+            <h5>Linux • Docker • Réseau & Sécurité</h5>
+            <h1>Home Lab : Infrastructure<br>Système & Réseau</h1>
             <div class="tech-stack">
-                <span><i class='bx bxl-tux'></i> LINUX </span>
+                <span><i class='bx bxl-tux'></i> Debian</span>
                 <span><i class='bx bxl-docker'></i> Docker</span>
-                <span><i class="bx bx-shield-quarter"></i> VPN</span>
-                <span><i class="bx bx-terminal"></i> SSH</span>
-                <span><i class="bx bx-server"></i> Samba</span>
+                <span><i class='bx bx-network-chart'></i> Tailscale / Nginx</span>
             </div>
-            
         </div>
         <div class="img-grid">
-            <img src="Projet-serveur/BTOP.png" class="responsive-img" onclick="openLightbox(this)">
+            <img src="Projet-serveur/Serveur Debian.png" class="responsive-img" onclick="openLightbox(this)" alt="Serveur Debian Home Lab">
         </div>
     </section>
 
     <section class="project-details">
-        
-        <div class="detail-block">
-            <h2>01. LE DÉFI TECHNIQUE</h2>
-            <ul>
-                <li>Contexte : Hébergement d'un serveur personnel au sein d'une résidence universitaire (réseau CROUS).</li>
-                <li>Contrainte : Réseau soumis à un NAT strict, IP dynamique et aucun port entrant ouvert. Impossibilité d'exposer des services de manière classique.</li>
-                <li>Solution : Mise en place d'un réseau Mesh VPN avec Tailscale (basé sur WireGuard). Cette architecture crée un tunnel sécurisé traversant le pare-feu, permettant l'accès et l'administration à distance sans ouverture de port critique.</li>
-            </ul>
-            <div class="img-grid">
-                <img src="Projet-serveur/Tailscale.png" alt="Tailscale" onclick="openLightbox(this)">
-            </div>
-        </div>
 
-        <div class="detail-block reverse"> <div class="text-content">
-                <h2>02. L'Architecture Système</h2>
-                 <ul>
-                    <li>OS : Debian Linux (Stabilité et performance).</li>
-                    <li>Gestion : Administration 100% "Headless" via SSH (MobaXtrem).</li>
-                    <li>Stockage : Serveur de fichiers Samba (NAS maison) pour centraliser les documents sur le réseau local.</li>
-                </ul>
-            </div>
-            <div class="img-grid">
-                <img src="Projet-serveur/smb.png" alt="Samba" onclick="openLightbox(this)">
-            </div>
-            
-        </div>
-        
         <div class="detail-block">
-            <h2>03. Virtualisation & Orchestration (Docker)</h2>
+            <h2>01. Défi technique : Contexte et Problématique</h2>
             <ul>
-                <li>Docker & Docker-Compose : Isolation des services dans des conteneurs légers.</li>
-                <li>Portainer : Interface graphique pour monitorer l'état des conteneurs, les logs et les ressources en temps réel.</li>
-                <li>Dashboard Dashy : Création d'un portail centralisé pour accéder à tous les outils en un clic.</li>
+                <li><strong>Contexte :</strong> Mon hébergement en résidence CROUS impose des contraintes réseau strictes : <strong>pas d'accès à la box</strong>, <strong>impossibilité d'ouvrir des ports</strong>. L'objectif : créer un réseau privé virtuel accessible depuis l'extérieur.</li>
+                <li><strong>Solution :</strong> Mise en place de <strong>Tailscale</strong> (VPN Mesh) et <strong>Nginx Proxy Manager</strong> en tant que reverse proxy interne.</li>
+                <li><strong>Résultat :</strong> Une infrastructure isolée mais interconnectée, permettant l'hébergement de services web et l'administration à distance.</li>
             </ul>
-            <div class="img-grid">
-                <img src="Projet-serveur/portainer.png" alt="portainer" onclick="openLightbox(this)">
-            </div>
-            
         </div>
 
         <div class="detail-block">
-            <h2>04. Réseau & Sécurité</h2>
+            <h2>02. Architecture Système & Services</h2>
             <ul>
-                <li>VPN Mesh (Tailscale) : Création d'un tunnel sécurisé pour accéder au serveur depuis n'importe où sans ouvrir de ports sur la box (contournement du NAT).</li>
-                <li>Pi-hole : Protection globale du réseau via filtrage DNS (blocage des publicités et trackers au niveau réseau).</li>
-                <li>Nginx Reverse Proxy : Gestion propre des flux entrants et sécurisation des accès.</li>
+                <li><strong>OS :</strong> Installation et configuration de <strong>Debian 12</strong> sans interface graphique pour une empreinte mémoire minimale.</li>
+                <li><strong>Administration :</strong> Gestion complète en ligne de commande via <strong>SSH</strong> sécurisé par authentification par clé.</li>
+                <li><strong>Stockage réseau :</strong> Mise en place d'un serveur de fichiers <strong>Samba</strong> pour le partage cross-platform (Windows/Linux).</li>
             </ul>
             <div class="img-grid">
-                <img src="Projet-serveur/pi-hole.png" alt="pi-hole" onclick="openLightbox(this)">
+                <img src="Projet-serveur/Ssh_Load.png" alt="Dashboard SSH et charge CPU du serveur Home Lab" class="responsive-img" onclick="openLightbox(this)">
             </div>
-            
         </div>
-        
+
+        <div class="detail-block">
+            <h2>03. Virtualisation & Containerisation (Docker)</h2>
+            <ul>
+                <li><strong>Supervision :</strong> Déploiement de <strong>Portainer</strong>, une interface web permettant de gérer les conteneurs Docker graphiquement et de monitorer leurs logs.</li>
+                <li><strong>Dashboard :</strong> Mise en ligne d'un tableau de bord personnalisé avec <strong>Dashy</strong> pour centraliser l'accès à tous les services.</li>
+                <li><strong>Filtrage DNS (Pi-hole) :</strong> Déploiement en tant que résolveur DNS bloquant les pubs et les trackers.</li>
+            </ul>
+        </div>
+
+        <div class="detail-block">
+            <h2>04. Sécurité Réseau & Optimisation</h2>
+            <ul>
+                <li><strong>VPN Mesh :</strong> <strong>Tailscale</strong> offre une connexion chiffrée de bout en bout, me permettant d'accéder au serveur sans exposer de ports sur le réseau CROUS.</li>
+                <li><strong>Proxy inverse :</strong> <strong>Nginx Proxy Manager</strong> gère les noms de domaine locaux et l'accès HTTPS avec génération automatique de certificats SSL (Let's Encrypt).</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Projet-serveur/Nginx.png" alt="Interface Nginx Proxy Manager" class="responsive-img" onclick="openLightbox(this)">
+            </div>
+        </div>
+
         <section class="project-conclusion-section">
             <div class="conclusion-card">
                 <h2><i class='bx bx-trophy'></i> Bilan & Compétences acquises</h2>
-                
+
                 <p>
-                    Ce projet de Home Lab a été une étape clé dans mon parcours système et réseau. 
-                    Il m'a permis de transformer des contraintes domestiques complexes en une infrastructure fonctionnelle 
-                    et sécurisée. J'ai non seulement appris à maîtriser l'environnement Linux (Debian) et la conteneurisation, 
-                    mais j'ai surtout compris la logique de sécurisation et d'exposition de services dans un environnement réseau 
-                    restrictif.
+                    Le projet Home Lab m'a permis de concevoir une infrastructure complète en partant de zéro, malgré les contraintes réseau. J'ai renforcé mes compétences en administration Linux, virtualisation Docker et sécurisation des accès.
                 </p>
 
                 <div class="key-points">
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>SSH</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>Réseaux</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>Docker</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>VPN Mesh</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>Samba</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>Administration Système</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>DNS</strong></span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span><strong>Reverse Proxy</strong></span>
-                    </div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Administration Linux (Debian)</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Docker & Portainer</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>VPN Mesh (Tailscale)</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Reverse Proxy (Nginx PM)</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Services (Samba, Pi-hole, Dashy)</strong></span></div>
                 </div>
-
                 <br>
-                <p>
-                    En résumé, ce Home Lab est bien plus qu'un simple serveur domestique ; c'est un terrain d'apprentissage 
-                    continu qui m'a préparé à relever des défis techniques réels dans le domaine de l'informatique.
-                </p>
+                <p>Ce projet démontre ma capacité à administrer une infrastructure complète en autonomie, un atout clé pour un poste d'Administrateur Systèmes & Réseaux.</p>
             </div>
         </section>
 
-
-    
-    
-
-        
+    </section>  <!-- ✅ FERMETURE DE project-details AJOUTÉE ICI -->
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn">&times;</span>
@@ -168,7 +114,7 @@
     </div>
 
     <footer>
-        © 2025 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
+        © 2026 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
     </footer>
 
     <script src="main.js"></script>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Spiky Adventures : Projet de jeu de plateforme 2D développé sur Unity (C#) par Strazimiri Besim.">
+    <meta name="description" content="Projet Spiky Adventures par Strazimiri Besim : Jeu 2D Unity.">
     <title>Projet : Spiky Adventures</title>
+    <link rel="icon" type="image/png" href="Certificat/logo.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image" href="Certificat/logo.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
 <body>
@@ -30,293 +30,283 @@
 
     <section class="project-hero">
         <div class="hero-text">
-            <h5>Jeu Vidéo / Unity</h5>
-            <h1>Spiky Adventures</h1>
-            <p>
-                Un jeu de plateforme en 2D inspiré de Mario. 
-                L’objectif est de traverser différents niveaux en évitant les obstacles et les ennemis.
-            </p>
+            <h5>Unity 2D • C# • Game Design</h5>
+            <h1>Spiky Adventures :<br>Jeu de Plateforme 2D</h1>
             <div class="tech-stack">
-                <span><i class='bx bxl-unity'></i> Unity</span>
-                <span><i class='bx bx-code-alt'></i> C#</span>
+                <span><i class='bx bx-game'></i> Unity 2D</span>
+                <span><i class='bx bxl-c-plus-plus'></i> C#</span>
+                <span><i class='bx bx-images'></i> Aseprite / Photoshop</span>
             </div>
-            <br>
-            <a href="https://github.com/STR-CIEL/jeu" target="_blank" class="btn">Voir le code sur GitHub</a>
         </div>
         <div class="video-container">
-            <video controls autoplay muted loop>
-                <source src="Project/spiky.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
+            <video autoplay muted loop playsinline>
+                <source src="Project/video.mp4" type="video/mp4">
             </video>
         </div>
     </section>
 
     <section class="project-details">
-        
-        <div class="detail-block">
-            <h2>01. Conception & Logique</h2>
-            <p>Avant de coder, j'ai structuré la logique du jeu via un diagramme de cas d'utilisation. Cela m'a permis de définir les interactions principales : sauter, courir, et interagir avec les ennemis.</p>
-            <div class="img-grid">
-                <img src="Project/diagramme de classe.png" alt="Diagramme UML" onclick="openLightbox(this)">
-            </div>
-        </div>
-
-        <div class="detail-block reverse"> <div class="text-content">
-                <h2>02. Création des Niveaux</h2>
-                <p>Gestion du Scene Management : Création et organisation des assets pour l'architecture des niveaux.</p>
- 
-            </div>
-            <div class="video-container">
-                <video controls autoplay muted loop>
-                    <source src="Project/Levels.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-            </div>
-        </div>
-        
-        <div class="detail-block">
-            <h2>03. Création de la Tilemap</h2>
-            <ul>
-                <li>Création de l'environnement : Mise en place de l'objet Grid et de la Tilemap rectangulaire pour définir la zone de dessin du niveau.</li>
-                <li>Configuration de la physique : Intégration du Tilemap Collider 2D et paramétrage du Rigidbody 2D en mode Static pour générer des collisions fixes et stables.</li>
-                <li>Gestion des Layers : Assignation du calque "Ground" à l'objet pour assurer la détection du sol lors des interactions avec le joueur.</li>
-            </ul>
-            <div class="video-container">
-                <video controls autoplay muted loop>
-                    <source src="Project/Tilemap.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-            </div>
-            
-        </div>
 
         <div class="detail-block">
-            <h2>04. Création du personnage</h2>
-            <ul>
-                <li>Paramétrage du Rigidbody 2D en mode Dynamic avec contraintes de rotation (Freeze Rotation Z) pour stabiliser le personnage.</li>
-                <li>Optimisation de la détection de collision via le mode Continuous pour prévenir les erreurs de traversée d'objets (Tunneling).</li>
-                <li>Mise en place de la hiérarchie du personnage incluant un système de détection au sol (GroundCheck).</li>
-            </ul>
-            <div class="img-grid">
-                <img src="Project/CR.perssonage.png" alt="Interface Unity" onclick="openLightbox(this)">
-            </div>
-            
+            <h2>01. Conception Générale</h2>
+            <p>
+                Inspiré du gameplay de <em>Mario</em>, <strong>Spiky Adventures</strong> est un jeu de plateforme en 2D où le joueur traverse plusieurs niveaux en évitant des obstacles piquants et des ennemis. Ce projet m'a permis d'appréhender l'ensemble des étapes de création d'un jeu vidéo, de la conception à l'export.
+            </p>
         </div>
-        <div class="detail-block">
-            <h2>05. Les Mouvements</h2>
-            <div class="code-description">
-                <h3><i class='bx bx-terminal'></i> Analyse du script de Mouvement</h3>
+
+        <div class="detail-block reverse">
+            <div class="text-content">
+                <h2>02. Les Niveaux (Level Design)</h2>
                 <p>
-                    Ce script gère la physique du joueur en utilisant le <strong>nouveau système d'Input</strong> d'Unity. 
-                    J'ai choisi d'utiliser <code>FixedUpdate</code> pour garantir une physique fluide indépendante du taux de rafraîchissement (framerate).
+                    La conception des niveaux a été réalisée avec les <strong>Tilemaps</strong> (grilles de tuiles) d'Unity. J'ai dessiné mes propres sprites (dalles, plateformes, décors) avec Aseprite et Photoshop pour créer 4 niveaux distincts.
                 </p>
-                <ul class="tech-list">
-                    <li><strong>Unity 6 Ready :</strong> Utilisation de la propriété <code>rb.linearVelocity</code> (remplaçant l'ancienne syntaxe <code>velocity</code>). [cite: 1]</li>
-                    <li><strong>Détection du sol :</strong> Un <code>Raycast</code> vertical permet d'autoriser le saut uniquement si le joueur touche le sol, évitant le "saut infini". [cite: 1]</li>
-                    <li><strong>Animation :</strong> La vitesse est transmise à l'Animator pour déclencher l'animation de course via <code>Mathf.Abs(horizontal)</code>. [cite: 1]</li>
-                </ul>
             </div>
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="Project/Levels.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="detail-block">
+            <h2>03. Scripting – Le Tilemap</h2>
+            <p>
+                Ce script contrôle les plateformes mobiles qui suivent un chemin de waypoints.
+            </p>
+            <div class="code-section">
+                <div class="code-description">
+                    <h3><i class='bx bx-code-block'></i> Analyse du code</h3>
+                    <p>Ce script gère le mouvement des plateformes sur un circuit fermé de points de passage :</p>
+                    <ul class="tech-list">
+                        <li><strong>Waypoints</strong> : circuit fermé de l'index 0 → n-1 → 0.</li>
+                        <li><strong>Mouvement fluide</strong> : interpolation linéaire entre chaque point.</li>
+                        <li><strong>Gizmos</strong> : visualisation du chemin dans l'éditeur Unity pour faciliter le level design.</li>
+                    </ul>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="file-name"><i class='bx bxl-c-plus-plus'></i> MovingPlatform.cs</span>
+                        <span class="copy-btn">Unity C# Script</span>
+                    </div>
+
+                    <pre><code class="language-csharp">
+                using System.Collections;
+                using System.Collections.Generic;
+                using UnityEngine;
+
+                public class MovingPlatform : MonoBehaviour
+                {
+                    [SerializeField] private Transform[] waypoints;
+                    public float speed = 1f;
+                    private int currentIndex = 0;
+
+                    void Start()
+                    {
+                        if (waypoints.Length > 0)
+                            transform.position = waypoints[0].position;
+                    }
+
+                    void FixedUpdate()
+                    {
+                        if (waypoints.Length == 0) return;
+
+                        int nextIndex = (currentIndex + 1) % waypoints.Length;
+                        Vector2 target = waypoints[nextIndex].position;
+
+                        transform.position = Vector2.MoveTowards(
+                            transform.position, target, speed * Time.deltaTime
+                        );
+
+                        if (Vector2.Distance(transform.position, target) < 0.01f)
+                            currentIndex = nextIndex;
+                    }
+
+                    private void OnDrawGizmos()
+                    {
+                        if (waypoints == null || waypoints.Length < 2) return;
+
+                        Gizmos.color = Color.blue;
+                        for (int i = 0; i < waypoints.Length; i++)
+                        {
+                            Gizmos.DrawWireSphere(waypoints[i].position, 0.2f);
+                            int next = (i + 1) % waypoints.Length;
+                            Gizmos.DrawLine(waypoints[i].position, waypoints[next].position);
+                        }
+                    }
+                }
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-block reverse">
+            <div class="text-content">
+                <h2>04. Le Personnage</h2>
+                <p>
+                    Le protagoniste (<em>Spiky</em>) est un petit personnage orange. Il peut sauter (plus haut en maintenant la touche), se déplacer horizontalement, et détruire ses ennemis en leur sautant dessus — à la manière de Mario.
+                </p>
+            </div>
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="Project/Spiky.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="detail-block">
+            <h2>05. Scripting – Les Mouvements</h2>
             <div class="code-section">
                 <div class="code-block">
                     <div class="code-header">
                         <span class="file-name"><i class='bx bxl-c-plus-plus'></i> Mouvement.cs</span>
                         <span class="copy-btn">Unity C# Script</span>
                     </div>
-                    
+
                     <pre><code class="language-csharp">
-            using UnityEngine;
-            using UnityEngine.InputSystem;
+                using System.Collections;
+                using System.Collections.Generic;
+                using UnityEngine;
 
-            public class Mouvement : MonoBehaviour
-            {
-                public Rigidbody2D rb;
-                public float speed;
-                public float jumpForce;
-                public LayerMask groundLayer;
-                public Transform groundCheck;
-                
-                float horizontal;
-                SpriteRenderer[] sr;
-                private bool isGrounded;
-                Animator animator;
-
-                private void Start()
+                public class PlayerMovement : MonoBehaviour
                 {
-                    // Récupère tous les SpriteRenderers de l'objet et des enfants
-                    sr = GetComponentsInChildren&lt;SpriteRenderer&gt;();
-                    animator = GetComponent&lt;Animator&gt;();
-                }
+                    [Header("Mouvement")]
+                    [SerializeField] private float speed = 7f;
+                    [SerializeField] private float jumpForce = 12f;
+                    [SerializeField] private float maxJumpTime = 0.25f;
 
-                private void FixedUpdate()
-                {
-                    // Utilisation de linearVelocity (Unity 6 / Nouveau système physique)
-                    rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
-                    animator.SetFloat("speed", Mathf.Abs(horizontal));
-                }
+                    private float horizontal;
+                    private bool isJumping;
+                    private float jumpTimeCounter;
+                    private bool isFacingRight = true;
 
-                // Gestion du mouvement avec le nouveau Input System
-                public void Move(InputAction.CallbackContext context)
-                {
-                    horizontal = context.ReadValue&lt;Vector2&gt;().x;
+                    [Header("Collision")]
+                    [SerializeField] private LayerMask groundLayer;
+                    [SerializeField] private Transform groundCheck;
+                    [SerializeField] private float groundCheckRadius = 0.2f;
 
-                    if (horizontal < 0)
+                    private Rigidbody2D rb;
+                    private bool isGrounded;
+
+                    void Start() { rb = GetComponent<Rigidbody2D>(); }
+
+                    void Update()
                     {
-                        transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f); // Tourne le personnage
-                    }
-                    else if (horizontal > 0)
-                    {
-                        transform.localScale = new Vector3(.2f, .2f, .2f); // Face normale
-                    }
-                }
+                        horizontal = Input.GetAxis("Horizontal");
+                        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-                public void Jump()
-                {
-                    CheckGround();
-                    // Vérifie si la touche saut est pressée et si le perso est au sol
-                    if (Input.GetButtonDown("Jump") && isGrounded)
+                        Flip();
+
+                        if (Input.GetButtonDown("Jump") && isGrounded)
+                        {
+                            isJumping = true;
+                            jumpTimeCounter = maxJumpTime;
+                            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                        }
+
+                        if (Input.GetButton("Jump") && isJumping)
+                        {
+                            if (jumpTimeCounter > 0)
+                            {
+                                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                                jumpTimeCounter -= Time.deltaTime;
+                            }
+                            else isJumping = false;
+                        }
+
+                        if (Input.GetButtonUp("Jump")) isJumping = false;
+                    }
+
+                    void FixedUpdate()
                     {
-                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+                    }
+
+                    void Flip()
+                    {
+                        if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
+                        {
+                            isFacingRight = !isFacingRight;
+                            Vector3 scale = transform.localScale;
+                            scale.x *= -1;
+                            transform.localScale = scale;
+                        }
                     }
                 }
-
-                void CheckGround()
-                {
-                    // Raycast vers le bas pour détecter le sol
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
-                    isGrounded = hit.collider != null;
-                }
-            }
                     </code></pre>
                 </div>
             </div>
-            
         </div>
+
         <div class="detail-block">
-            <h2>06. Traps</h2>
-            <p>
-                Ce script contrôle un ennemi statique qui tombe lorsqu'il détecte le joueur en dessous. 
-                C'est un exemple d'interaction entre <strong>IA simple</strong> et <strong>Physique Unity</strong>.
-            </p>
-            <ul class="tech-list">
-                <li><strong>Mathématiques :</strong> Utilisation de <code>Vector2.Distance</code> pour calculer la proximité du joueur sans collision physique.</li>
-                <li><strong>Contrôle Physique :</strong> Manipulation directe de <code>gravityScale</code> (0 à 1) pour simuler une chute soudaine.</li>
-                <li><strong>Logique d'État :</strong> Utilisation de booléens (<code>isFalling</code>) pour gérer les états du piège (Attente, Chute, Reset).</li>
-            </ul>
-            
-            <div class="img-grid">
-                <img src="Project/spikhead.png" alt="Interface Unity" onclick="openLightbox(this)">
-            </div>
+            <h2>06. Scripting – Pièges & Ennemis</h2>
             <div class="code-section">
+                <div class="code-description">
+                    <h3><i class='bx bx-code-block'></i> Analyse du code</h3>
+                    <ul class="tech-list">
+                        <li><strong>Détection de collision</strong> : Utilise <code>OnCollisionEnter2D</code> pour détecter le contact avec le joueur.</li>
+                        <li><strong>Mécanique Mario-like</strong> : Si le joueur tombe sur le spike vu du dessus (vélocité Y négative), le spike est détruit.</li>
+                        <li><strong>Game Over</strong> : Dans tout autre cas de collision, le niveau est rechargé.</li>
+                    </ul>
+                </div>
+
                 <div class="code-block">
                     <div class="code-header">
                         <span class="file-name"><i class='bx bxl-c-plus-plus'></i> SpikeHead.cs</span>
                         <span class="copy-btn">Unity C# Script</span>
                     </div>
-                    
+
                     <pre><code class="language-csharp">
-            using UnityEngine;
+                using UnityEngine;
+                using UnityEngine.SceneManagement;
 
-            public class SpikeHead : EnemyRespawn
-            {
-                public Transform player; // Référence au joueur
-                public float detectionRange = 5f; // Distance à laquelle il détecte le joueur
-                public float fallSpeed = 5f; // Vitesse de chute
-                public float resetDelay = 2f; // Temps avant de remonter
-
-
-                private Vector3 startPosition;
-                private Rigidbody2D rb;
-                private bool isFalling = false;
-
-                void Start()
+                public class SpikeHead : MonoBehaviour
                 {
-                    startPosition = transform.position; // Sauvegarde la position de départ
-                    rb = GetComponent<Rigidbody2D>();
-                    rb.gravityScale = 0; // Désactive la gravité au départ
-                }
-
-                void Update()
-                {
-                    if (!isFalling && player != null)
+                    private void OnCollisionEnter2D(Collision2D collision)
                     {
-                        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-                        if (distanceToPlayer < detectionRange && player.position.y < transform.position.y)
+                        if (collision.gameObject.CompareTag("Player"))
                         {
-                            Fall(); // Déclenche la chute
+                            // Vérifie si le joueur arrive du dessus (comme dans Mario)
+                            if (collision.relativeVelocity.y < 0)
+                            {
+                                // Le joueur a écrasé l'ennemi → Destruct.
+                                Destroy(gameObject);
+                                // Petit rebond optionnel
+                            }
+                            else
+                            {
+                                // Mort du joueur → Restart
+                                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                            }
                         }
                     }
                 }
-
-                void Fall()
-                {
-                    isFalling = true;
-                    rb.gravityScale = 1; // Active la gravité pour faire tomber l'objet
-                }
-
-                /*void OnCollisionEnter2D(Collision2D collision)
-                {
-                    if (collision.gameObject.CompareTag("Player"))
-                    {
-                        // Appliquer les dégâts au joueur (ajuste selon ton système de santé)
-                        collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-                    }
-
-                    // Après collision, attend un moment puis remonte
-                    Invoke("ResetPosition", resetDelay);
-                }*/
-
-                void ResetPosition()
-                {
-                    rb.gravityScale = 0;
-                    rb.linearVelocity = Vector2.zero; // Arrête le mouvement
-                    transform.position = startPosition; // Remet à la position initiale
-                    isFalling = false;
-                }
-            }
                     </code></pre>
                 </div>
             </div>
-            
         </div>
+
         <section class="project-conclusion-section">
             <div class="conclusion-card">
                 <h2><i class='bx bx-trophy'></i> Bilan & Compétences acquises</h2>
-                
+
                 <p>
-                    Ce projet <strong>Spiky Adventures</strong> a été une étape clé dans mon parcours. 
-                    Il m'a permis de transformer des concepts théoriques en une application fonctionnelle.
-                    J'ai non seulement appris à coder en <strong>C#</strong> et à maîtriser l'interface d'<strong>Unity</strong>, 
-                    mais j'ai surtout compris la logique globale d'un projet informatique : de la conception (UML) jusqu'à la gestion des bugs.
+                    Le projet Unity m'a permis d'appréhender concrètement le développement de jeux vidéo en C# et de maîtriser les bases de Unity 2D : Tilemaps, Animator, Physique, UI et Scripting.
                 </p>
 
                 <div class="key-points">
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span>Gestion de la <strong>Physique 2D</strong> (Gravité, Collisions)</span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span>Architecture <strong>Orientée Objet</strong> (Héritage, Classes)</span>
-                    </div>
-                    <div class="point">
-                        <i class='bx bx-check'></i>
-                        <span>Utilisation du nouveau <strong>Input System</strong></span>
-                    </div>
-                </div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Unity 2D & Tilemaps</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Scripting C#</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Game Design & Level Design</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>UI & Export</strong></span></div>
 
+                </div>
                 <br>
-                <a href="https://github.com/STR-CIEL/jeu/" target="_blank" class="btn">
-                    <i class='bx bxl-github'></i> Voir le projet complet sur GitHub
-                </a>
+                <p>Ce projet illustre ma polyvalence : de la logique backend à la conception créative.</p>
             </div>
         </section>
 
-
-    
-    
-
-        
+    </section>  <!-- ✅ FERMETURE DE project-details AJOUTÉE ICI -->
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn">&times;</span>
@@ -324,9 +314,10 @@
     </div>
 
     <footer>
-        © 2025 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
+        © 2026 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
     </footer>
 
     <script src="main.js"></script>
+
 </body>
 </html>

@@ -547,26 +547,13 @@ footer {
 
 pre {
     margin: 0;
-    padding: 15px;
-    overflow-x: auto; /* Scroll horizontal si la ligne est trop longue */
+    padding: 20px;
+    overflow-x: auto;
+    white-space: pre; /* Scroll horizontal si la ligne est trop longue */
 }
 
 code {
     color: #d4d4d4; /* Couleur texte par défaut */
-    font-size: 1.3rem;
-    line-height: 1.5;
-}
-
-/* Coloration syntaxique simple (Simulation) */
-/* Note : Pour une vraie coloration automatique, il faudrait une librairie JS comme Prism.js */
-
-/* Ajustements finaux du code */
-pre {
-    padding: 20px;
-    white-space: pre; /* Garde les espaces et retours à la ligne exacts */
-}
-
-code {
     font-size: 1.4rem;
     line-height: 1.6;
 }

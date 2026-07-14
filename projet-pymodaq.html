@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projet PyMoDAQ par Strazimiri Besim : Pilotage de Banc Thermique, serveur embarqué sur Raspberry Pi.">
+    <title>Projet : PyMoDAQ</title>
+    <link rel="icon" type="image/png" href="Certificat/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html" class="active">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+        <div class="navbar-toggle" id="openNav" onclick="openNav()"><i class='bx bx-menu'></i></div>
+        <div class="navbar-close" id="closeNav" onclick="closeNav()" style="display: none;"><i class='bx bx-x'></i></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="logo">Strazimiri <span>Besim</span></a>
+            <a href="index.html">Accueil</a>
+            <a href="Projet.html">Projets</a>
+            <a href="certificat.html">Certificats</a>
+        </nav>
+    </header>
+
+    <section class="project-hero">
+        <div class="hero-text">
+            <h5>Python • Raspberry Pi • Électronique & Capteurs</h5>
+            <h1>Projet PyMoDAQ : Pilotage de Banc Thermique</h1>
+
+            <div class="tech-stack">
+                <span><i class='bx bxl-python'></i> Python</span>
+                <span><i class='bx bxl-tux'></i> Linux</span>
+                <span><i class="bx bx-chip"></i> Raspberry Pi</span>
+                <span><i class="bx bx-network-chart"></i> I²C / ZeroMQ</span>
+                <span><i class="bx bx-cog"></i> Systemd</span>
+            </div>
+
+
+        </div>
+        <div class="img-grid">
+            <img src="Pymodaq/raspipi3b.jpg" class="responsive-img" onclick="openLightbox(this)">
+        </div>
+    </section>
+
+    <section class="project-details">
+
+        <div class="detail-block">
+            <h2>01. LE PROJET ET SON CONTEXTE</h2>
+            <ul>
+                <li><strong>Contexte :</strong> Remplacement des licences logicielles LabVIEW par le framework open-source PyMoDAQ pour le CETHIL (Centre d'énergétique et de thermique de Lyon) afin de réduire les coûts.</li>
+                <li><strong>Objectif :</strong> Développer un Dispositif d'Acquisition et de Pilotage (DAP) embarqué sur Raspberry Pi 3B pour remplacer de manière économique les modules onéreux NI-DAQMX lors d'expériences thermiques.</li>
+                <li><strong>Rôle :</strong> Développeur Python, Administrateur Système Linux et Responsable de la documentation globale du projet (création et gestion d'un Wiki sur GitHub Pages).</li>
+            </ul>
+        </div>
+
+        <div class="detail-block reverse">
+            <div class="text-content">
+                <h2>02. Gestion Matérielle, Capteurs & Architecture Logicielle</h2>
+                 <ul>
+                    <li><strong>Contrôle de puissance :</strong> Pilotage d'une résistance chauffante via un hacheur MOSFET (broche GPIO 23) et d'un ventilateur (broche GPIO 18) en utilisant des signaux PWM générés de manière très stable par la bibliothèque <code>pigpio</code>.</li>
+                    <li><strong>Acquisition de données :</strong> Mise en place d'une communication matérielle sur le bus I2C pour interagir avec une chaîne de capteurs thermiques et d'humidité (TMP102, AHT10, EMC2101).</li>
+                    <li><strong>Architecture logicielle :</strong> Conception d'un programme Python orienté objet hautement modulaire, intégrant des classes abstraites (<code>SensorDriver</code>) et un registre dynamique permettant d'ajouter de nouveaux capteurs sans modifier le cœur du programme.</li>
+                </ul>
+            </div>
+            <div class="img-grid">
+                <img src="Pymodaq/Deploy_RaspPi3.png" alt="Diagramme de déploiement du Raspberry Pi 3B pour PyMoDAQ" class="responsive-img" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <div class="detail-block">
+            <h2>03. Intégration Réseau & Déploiement</h2>
+            <ul>
+                <li><strong>Communication :</strong> Intégration d'une architecture réseau asynchrone de type Client/Serveur (Requête/Réponse) via des sockets TCP ZeroMQ.</li>
+                <li><strong>Sérialisation :</strong> Échange des trames de données de télémétrie et des statuts des actionneurs au format JSON pour optimiser la légèreté et la lisibilité des communications.</li>
+                <li><strong>Déploiement et isolation :</strong> Isolement de toutes les bibliothèques et dépendances du projet au sein d'un environnement virtuel Python (<code>venv</code>).</li>
+                <li><strong>Autonomie du serveur :</strong> Intégration du script principal au gestionnaire de services Linux via la création d'un fichier dédié (<code>pilotage.service</code> via Systemd) pour garantir le lancement automatique au démarrage et le redémarrage en cas de crash.</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Pymodaq/Journal.png" alt="Journal de logs PyMoDAQ" class="responsive-img" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <section class="project-conclusion-section">
+            <div class="conclusion-card">
+                <h2><i class='bx bx-trophy'></i> Bilan & Compétences acquises</h2>
+
+                <p>
+                    Le projet PyMoDAQ m'a permis d'allier le développement logiciel Python avec l'intégration matérielle et l'administration système Linux. J'ai pu concevoir de A à Z une solution embarquée fonctionnelle pour un environnement de laboratoire.
+                </p>
+
+                <div class="key-points">
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Python (POO, venv)</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Raspberry Pi & Linux (Systemd, SSH)</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>ZeroMQ, TCP/IP & JSON</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Bus I2C, PWM, GPIO</strong></span></div>
+                    <div class="point"><i class='bx bx-check'></i><span><strong>Git & Rédaction Wiki</strong></span></div>
+                </div>
+
+                <br>
+                <p>
+                    Cette expérience renforce ma capacité à mener à bien des projets interdisciplinaires mêlant électronique, réseaux et développement backend.
+                </p>
+            </div>
+        </section>
+
+    </section>  <!-- ✅ FERMETURE DE project-details AJOUTÉE ICI -->
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom">
+    </div>
+
+    <footer>
+        © 2026 STRAZIMIRI <span>Besim</span> - Portfolio en ligne
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
